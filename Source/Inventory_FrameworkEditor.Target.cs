@@ -8,7 +8,8 @@ public class Inventory_FrameworkEditorTarget : TargetRules
 	public Inventory_FrameworkEditorTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
-		DefaultBuildSettings = BuildSettingsVersion.V5;
+		DefaultBuildSettings = BuildSettingsVersion.V7;
+		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_8;
 
 		ExtraModuleNames.AddRange( new string[] { "Inventory_Framework" } );
 	}
