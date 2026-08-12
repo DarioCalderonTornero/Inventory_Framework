@@ -2,3 +2,23 @@
 
 
 #include "Inventory_Framework/Items/ItemDefinition.h"
+
+#include "Inventory_Framework/Fragments/InventoryItemFragment.h"
+
+const UInventoryItemFragment* UItemDefinition::FindFragmentByClass(const TSubclassOf<UItemDefinition> ItemDefinition,
+                                                                  const TSubclassOf<UInventoryItemFragment> FragmentClass)
+{
+	if (ItemDefinition && FragmentClass)
+	{
+		UItemDefinition* ItemCDO = ItemDefinition.GetDefaultObject();
+
+for (const TObjectPtr<UInventoryItemFragment>& Fragment : ItemCDO->ItemFragments)		{
+			if (Fragment->IsA(FragmentClass))
+			{
+				return Fragment;
+			}
+		}
+	}
+	
+	return nullptr;
+}
